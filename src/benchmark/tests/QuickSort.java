@@ -6,20 +6,26 @@ import timing.Timer;
 
 public class QuickSort implements Benchmark {
 
-    private static Score score = new Score();
     private static Timer timer = new Timer();
 
+    private int benchPoints;
+
+    public QuickSort(int benchPoints) {
+        this.benchPoints = benchPoints;
+    }
+
+    @Override
     public String getName() {
         return "Quick Sort";
     }
 
     @Override
-    public void runTest() {
-
+    public int runTest() {
+        return 0;
     }
 
     @Override
     public void setScore(int score) {
-
+        Score.addToScores(getName(), score);
     }
 }

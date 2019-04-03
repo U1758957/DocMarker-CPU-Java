@@ -2,7 +2,9 @@ package benchmark;
 
 public interface Benchmark {
 
-    void runTest();
+    int runTest();
     void setScore(int score);
+
+    String getName();
 
 }
