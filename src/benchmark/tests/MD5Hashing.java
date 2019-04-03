@@ -6,11 +6,9 @@ import timing.Timer;
 
 public class MD5Hashing implements Benchmark {
 
-    private static Timer timer = new Timer();
+    private long benchPoints;
 
-    private int benchPoints;
-
-    public MD5Hashing(int benchPoints) {
+    public MD5Hashing(long benchPoints) {
         this.benchPoints = benchPoints;
     }
 
@@ -20,12 +18,13 @@ public class MD5Hashing implements Benchmark {
     }
 
     @Override
-    public int runTest() {
-        return 0;
+    public long runTest() {
+        Timer.startTiming();
+        return (long) (benchPoints / Timer.endTiming());
     }
 
     @Override
-    public void setScore(int score) {
+    public void setScore(long score) {
         Score.addToScores(getName(), score);
     }
 }

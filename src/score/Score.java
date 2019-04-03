@@ -5,13 +5,14 @@ import java.util.Map;
 
 public class Score {
 
-    private static Map<String, Integer> scores = new HashMap<>();
+    private static Map<String, Long> scores = new HashMap<>();
 
-    public static void addToScores(String name, int score) {
+    public static void addToScores(String name, long score) {
+        System.out.println(name + " | " + score);
         scores.put(name, score);
     }
 
-    public static int getFromScores(String name) {
+    public static long getFromScores(String name) {
         return scores.get(name);
     }
 

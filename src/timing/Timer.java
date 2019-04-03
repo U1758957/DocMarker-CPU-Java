@@ -8,8 +8,8 @@ public class Timer {
         startTime = System.nanoTime();
     }
 
-    public static long endTiming() {
-        return (long) ((System.nanoTime() - startTime) / 1_000_000d);
+    public static double endTiming() {
+        return (System.nanoTime() - startTime) / 1_000_000d;
     }
 
 }
