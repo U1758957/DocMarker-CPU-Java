@@ -7,9 +7,11 @@ import timing.Timer;
 public class QuickSort implements Benchmark {
 
     private long benchPoints;
+    private int[] array;
 
-    public QuickSort(long benchPoints) {
+    public QuickSort(long benchPoints, int[] array) {
         this.benchPoints = benchPoints;
+        this.array = array;
     }
 
     @Override

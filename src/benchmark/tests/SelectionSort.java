@@ -7,9 +7,11 @@ import timing.Timer;
 public class SelectionSort implements Benchmark {
 
     private long benchPoints;
+    private int[] array;
 
-    public SelectionSort(long benchPoints) {
+    public SelectionSort(long benchPoints, int[] array) {
         this.benchPoints = benchPoints;
+        this.array = array;
     }
 
     @Override
