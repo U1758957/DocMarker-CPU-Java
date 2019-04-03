@@ -9,7 +9,7 @@ public class Timer {
     }
 
     public static double endTiming() {
-        return (System.nanoTime() - startTime) / 1_000_000d;
+        return (System.nanoTime() - startTime) / 1_000_000_000d;
     }
 
 }
