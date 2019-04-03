@@ -15,7 +15,7 @@ public class SHA512Hashing implements Benchmark {
     }
 
     @Override
-    public void setScore() {
+    public void setScore(int score) {
 
     }
 }

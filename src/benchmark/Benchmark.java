@@ -3,6 +3,7 @@ package benchmark;
 public interface Benchmark {
 
     void runTest();
-    void setScore();
+
+    void setScore(int score);
 
 }

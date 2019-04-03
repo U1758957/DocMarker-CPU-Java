@@ -15,7 +15,7 @@ public class SelectionSort implements Benchmark {
     }
 
     @Override
-    public void setScore() {
+    public void setScore(int score) {
 
     }
 }
