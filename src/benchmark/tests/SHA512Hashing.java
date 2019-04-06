@@ -4,26 +4,48 @@ import benchmark.Benchmark;
 import score.Score;
 import timing.Timer;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class SHA512Hashing implements Benchmark {
 
     private long benchPoints;
+    private String stringToHash;
 
     /**
      * The constructor
      *
      * @param benchPoints the score divisor
+     * @param stringToHash the string to hash
      */
-    public SHA512Hashing(long benchPoints) {
+    public SHA512Hashing(long benchPoints, String stringToHash) {
         this.benchPoints = benchPoints;
+        this.stringToHash = stringToHash;
     }
 
     /**
-     * Starts the benchmark
-     * @return the score of that test
+     * Get the name of this test
+     * @return the name of the test
      */
     @Override
     public String getName() {
         return "SHA-512 Hashing";
+    }
+
+    /**
+     * Hash a string
+     * @throws NoSuchAlgorithmException if the hashing algorithm doesn't exist
+     */
+    private void hashString() throws NoSuchAlgorithmException {
+
+        StringBuilder hashHex;
+        hashHex = new StringBuilder();
+
+        MessageDigest digest = MessageDigest.getInstance("SHA-512");
+        byte[] bytes = digest.digest(stringToHash.getBytes(StandardCharsets.UTF_8));
+
+        for (byte x : bytes) hashHex.append(String.format("%1$02X", x));
     }
 
     /**
@@ -33,9 +55,13 @@ public class SHA512Hashing implements Benchmark {
     @Override
     public long runTest() {
         Timer.startTiming();
+        try {
+            hashString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         return (long) (benchPoints / Timer.endTiming());
     }
-
     /**
      * Store the score in the Score buffer class
      * @param score the score to set

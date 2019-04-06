@@ -18,8 +18,8 @@ public class Decompression implements Benchmark {
     }
 
     /**
-     * Starts the benchmark
-     * @return the score of that test
+     * Get the name of this test
+     * @return the name of the test
      */
     @Override
     public String getName() {

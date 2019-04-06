@@ -30,9 +30,9 @@ public class Control {
         benchmarks[0] = new AESEncryption(benchPoints);
         benchmarks[1] = new Compression(benchPoints);
         benchmarks[2] = new Decompression(benchPoints);
-        benchmarks[3] = new MD5Hashing(benchPoints);
-        benchmarks[4] = new SHA256Hashing(benchPoints);
-        benchmarks[5] = new SHA512Hashing(benchPoints);
+        benchmarks[3] = new MD5Hashing(benchPoints, data.getString());
+        benchmarks[4] = new SHA256Hashing(benchPoints, data.getString());
+        benchmarks[5] = new SHA512Hashing(benchPoints, data.getString());
         benchmarks[6] = new SelectionSort(benchPoints, data.getNewArray());
         benchmarks[7] = new QuickSort(benchPoints, data.getNewArray());
 
