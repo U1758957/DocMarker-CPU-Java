@@ -8,10 +8,18 @@ public class Control {
 
     private long benchPoints;
 
+    /**
+     * The constructor for Control
+     *
+     * @param benchPoints the score divisor
+     */
     public Control(long benchPoints) {
         this.benchPoints = benchPoints;
     }
 
+    /**
+     * Manages testing for the benchmarks. Initialises them, runs them, calculates the final scores, and saves.
+     */
     public void manageTesting() {
 
         Benchmark[] benchmarks = new Benchmark[8];

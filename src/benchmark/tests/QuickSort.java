@@ -9,11 +9,21 @@ public class QuickSort implements Benchmark {
     private long benchPoints;
     private int[] array;
 
+    /**
+     * The constructor
+     *
+     * @param benchPoints the score divisor
+     * @param array       the array to sort
+     */
     public QuickSort(long benchPoints, int[] array) {
         this.benchPoints = benchPoints;
         this.array = array;
     }
 
+    /**
+     * Starts the benchmark
+     * @return the score of that test
+     */
     @Override
     public String getName() {
         return "Quick Sort";
@@ -45,6 +55,10 @@ public class QuickSort implements Benchmark {
         }
     }
 
+    /**
+     * Starts the benchmark
+     * @return the score of that test
+     */
     @Override
     public long runTest() {
         Timer.startTiming();
@@ -60,6 +74,10 @@ public class QuickSort implements Benchmark {
         return (long) (benchPoints / Timer.endTiming());
     }
 
+    /**
+     * Store the score in the Score buffer class
+     * @param score the score to set
+     */
     @Override
     public void setScore(long score) {
         Score.addToScores(getName(), score);
