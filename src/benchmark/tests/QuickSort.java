@@ -19,9 +19,44 @@ public class QuickSort implements Benchmark {
         return "Quick Sort";
     }
 
+    private void sortArray(int[] array, int left, int right) {
+        if (left < right) {
+            int tempL = left;
+            int tempR = right;
+            int temp;
+            int pivot = array[(tempL + tempR) / 2];
+            do {
+                while (array[tempL] < pivot) {
+                    tempL++;
+                }
+                while (array[tempR] > pivot) {
+                    tempR--;
+                }
+                if (tempL <= tempR) {
+                    temp = array[tempL];
+                    array[tempL] = array[tempR];
+                    array[tempR] = temp;
+                    tempL++;
+                    tempR--;
+                }
+            } while (tempL <= tempR);
+            sortArray(array, left, tempR);
+            sortArray(array, tempL, right);
+        }
+    }
+
     @Override
     public long runTest() {
         Timer.startTiming();
+
+        int arrLength = array.length;
+
+        if (arrLength > 1) {
+            int right = arrLength - 1;
+            int left = 0;
+            sortArray(array, left, right);
+        }
+
         return (long) (benchPoints / Timer.endTiming());
     }
 
