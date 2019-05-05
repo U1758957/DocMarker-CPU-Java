@@ -27,7 +27,7 @@ public class Control {
 
         Data data = new Data(benchPoints > Integer.MAX_VALUE - 1 ? Integer.MAX_VALUE : Math.toIntExact(benchPoints));
 
-        benchmarks[0] = new AESEncryption(benchPoints);
+        benchmarks[0] = new AESEncryption(benchPoints, data.getString(), new Data(benchPoints > Integer.MAX_VALUE - 1 ? Integer.MAX_VALUE : Math.toIntExact(benchPoints)).getString());
         benchmarks[1] = new Compression(benchPoints);
         benchmarks[2] = new Decompression(benchPoints);
         benchmarks[3] = new MD5Hashing(benchPoints, data.getString());
@@ -38,13 +38,13 @@ public class Control {
 
         for (Benchmark benchmark : benchmarks) {
             System.out.println("Running " + benchmark.getName());
-            benchmark.setScore(benchmark.runTest());
+            benchmark.setScore(benchmark.runTest() / 100);
             finalScore += Score.getFromScores(benchmark.getName());
         }
 
         finalScore /= benchmarks.length;
 
-        Score.addToScores("Final Score", finalScore);
+        Score.addToScores("Final Score", finalScore / 100);
 
     }
 

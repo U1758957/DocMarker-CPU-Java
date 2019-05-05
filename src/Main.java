@@ -8,7 +8,7 @@ public class Main {
      * @param args the benchpoints to use
      */
     public static void main(String[] args) {
-        new Control(250_000L).manageTesting();
+        new Control(1_000_000).manageTesting();
     }
 
 }
