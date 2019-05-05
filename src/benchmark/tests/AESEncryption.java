@@ -42,6 +42,15 @@ public class AESEncryption implements Benchmark {
         return "AES Encryption";
     }
 
+    /**
+     * Encrypt the string
+     *
+     * @throws NoSuchAlgorithmException  if SHA-1 doesn't exist
+     * @throws NoSuchPaddingException    if PKCS5 Padding doesn't exist
+     * @throws InvalidKeyException       if the key is invalid
+     * @throws BadPaddingException       if the padding isn't good
+     * @throws IllegalBlockSizeException if you need to go to prison for block size
+     */
     private void encryptString() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 
         String encrypted;
