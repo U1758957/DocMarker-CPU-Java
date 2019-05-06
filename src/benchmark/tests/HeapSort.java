@@ -9,11 +9,24 @@ public class HeapSort implements Benchmark {
     private long benchPoints;
     private int[] array;
 
+    /**
+     * The constructor
+     *
+     * @param benchPoints the score divisor
+     * @param array       the array to sort
+     */
     public HeapSort(long benchPoints, int[] array) {
         this.benchPoints = benchPoints;
         this.array = array;
     }
 
+    /**
+     * Turn the array into heaps
+     *
+     * @param array the array
+     * @param end   the end index
+     * @param count the count index
+     */
     private void turnToHeaps(int[] array, int end, int count) {
 
         int root = count;
@@ -39,6 +52,9 @@ public class HeapSort implements Benchmark {
 
     }
 
+    /**
+     * Sort the array
+     */
     private void sortArray() {
         int arrLength = array.length;
         if (arrLength > 1) {
@@ -55,6 +71,10 @@ public class HeapSort implements Benchmark {
         }
     }
 
+    /**
+     * Starts the benchmark
+     * @return the score of that test
+     */
     @Override
     public long runTest() {
         Timer.startTiming();
@@ -62,11 +82,19 @@ public class HeapSort implements Benchmark {
         return (long) (benchPoints / Timer.endTiming());
     }
 
+    /**
+     * Store the score in the Score buffer class
+     * @param score the score to set
+     */
     @Override
     public void setScore(double score) {
         Score.addToScores(getName(), score);
     }
 
+    /**
+     * Get the name of this test
+     * @return the name of the test
+     */
     @Override
     public String getName() {
         return "Heap Sort";
