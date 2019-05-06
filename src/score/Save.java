@@ -11,10 +11,19 @@ public class Save {
 
     private String benchpoints;
 
+    /**
+     * Constructor
+     *
+     * @param benchpoints the benchpoints, for the filename
+     */
     public Save(long benchpoints) {
         this.benchpoints = String.valueOf(benchpoints);
     }
 
+    /**
+     * Save the score
+     * @throws Exception if it can't create the directory
+     */
     public void saveScore() throws Exception {
 
         List<String> names = Score.getNames();
