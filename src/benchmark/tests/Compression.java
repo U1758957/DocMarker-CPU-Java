@@ -13,7 +13,7 @@ public class Compression implements Benchmark {
 
     private long benchPoints;
     private String stringToCompress;
-    private byte[] compressed;
+    private static byte[] compressed;
 
     /**
      * The constructor
@@ -53,8 +53,8 @@ public class Compression implements Benchmark {
      *
      * @return the compressed byte array
      */
-    byte[] getCompressed() {
-        return compressed;
+    static byte[] getCompressed() {
+        return Compression.compressed;
     }
 
     /**
@@ -63,7 +63,7 @@ public class Compression implements Benchmark {
      * @param compressed the compressed byte array
      */
     private void setCompressed(byte[] compressed) {
-        this.compressed = compressed;
+        Compression.compressed = compressed;
     }
 
     /**
