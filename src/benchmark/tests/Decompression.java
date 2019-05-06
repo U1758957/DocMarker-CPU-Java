@@ -34,6 +34,11 @@ public class Decompression implements Benchmark {
         return "Decompression";
     }
 
+    /**
+     * Decompress to original string
+     *
+     * @throws IOException if null
+     */
     private void decompress() throws IOException {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(dataToDecompress);
         GZIPInputStream gzipInputStream = new GZIPInputStream(inputStream);
@@ -69,7 +74,7 @@ public class Decompression implements Benchmark {
      * @param score the score to set
      */
     @Override
-    public void setScore(long score) {
+    public void setScore(double score) {
         Score.addToScores(getName(), score);
     }
 }

@@ -13,7 +13,7 @@ public interface Benchmark {
      * Store the score in the Score buffer class
      * @param score the score to set
      */
-    void setScore(long score);
+    void setScore(double score);
 
     /**
      * Get the name of this test

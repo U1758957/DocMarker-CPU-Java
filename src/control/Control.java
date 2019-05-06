@@ -23,7 +23,7 @@ public class Control {
     public void manageTesting() {
 
         Benchmark[] benchmarks = new Benchmark[8];
-        long finalScore = 0;
+        double finalScore = 0;
 
         Data data = new Data(benchPoints > Integer.MAX_VALUE - 1 ? Integer.MAX_VALUE : Math.toIntExact(benchPoints));
 
@@ -33,19 +33,18 @@ public class Control {
         benchmarks[3] = new MD5Hashing(benchPoints, data.getString());
         benchmarks[4] = new SHA256Hashing(benchPoints, data.getString());
         benchmarks[5] = new SHA512Hashing(benchPoints, data.getString());
-        benchmarks[6] = new SelectionSort(benchPoints, data.getNewArray());
+        benchmarks[6] = new HeapSort(benchPoints, data.getNewArray());
         benchmarks[7] = new QuickSort(benchPoints, data.getNewArray());
 
         for (Benchmark benchmark : benchmarks) {
             System.out.println("Running " + benchmark.getName());
-            benchmark.setScore(benchmark.runTest() / 100);
+            benchmark.setScore(benchmark.runTest() / 1000);
             finalScore += Score.getFromScores(benchmark.getName());
         }
 
         finalScore /= benchmarks.length;
 
-        Score.addToScores("Final Score", finalScore / 100);
+        Score.addToScores("Final Score", finalScore);
 
     }
-
 }

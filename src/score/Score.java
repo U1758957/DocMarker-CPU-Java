@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Score {
 
-    private static Map<String, Long> scores = new HashMap<>();
+    private static Map<String, Double> scores = new HashMap<>();
 
     /**
      * Add to the score dictionary
@@ -13,7 +13,7 @@ public class Score {
      * @param name  the name of the benchmark (the key)
      * @param score the score to add (the value)
      */
-    public static void addToScores(String name, long score) {
+    public static void addToScores(String name, double score) {
         System.out.println(name + " | " + score);
         scores.put(name, score);
     }
@@ -23,7 +23,7 @@ public class Score {
      * @param name the name of the benchmark you want the score of (the key)
      * @return the score (the value)
      */
-    public static long getFromScores(String name) {
+    public static double getFromScores(String name) {
         return scores.get(name);
     }
 

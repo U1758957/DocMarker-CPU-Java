@@ -68,7 +68,7 @@ public class SHA256Hashing implements Benchmark {
      * @param score the score to set
      */
     @Override
-    public void setScore(long score) {
+    public void setScore(double score) {
         Score.addToScores(getName(), score);
     }
 }
