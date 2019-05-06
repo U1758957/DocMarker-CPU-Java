@@ -1,11 +1,14 @@
 package score;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Score {
 
     private static Map<String, Double> scores = new HashMap<>();
+    private static List<String> names = new ArrayList<>();
 
     /**
      * Add to the score dictionary
@@ -14,8 +17,8 @@ public class Score {
      * @param score the score to add (the value)
      */
     public static void addToScores(String name, double score) {
-        System.out.println(name + " | " + score);
         scores.put(name, score);
+        names.add(name);
     }
 
     /**
@@ -27,5 +30,7 @@ public class Score {
         return scores.get(name);
     }
 
-
+    static List<String> getNames() {
+        return names;
+    }
 }
