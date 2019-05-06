@@ -28,7 +28,7 @@ public class Control {
         Data data = new Data(benchPoints > Integer.MAX_VALUE - 1 ? Integer.MAX_VALUE : Math.toIntExact(benchPoints));
 
         benchmarks[0] = new AESEncryption(benchPoints, data.getString(), new Data(benchPoints > Integer.MAX_VALUE - 1 ? Integer.MAX_VALUE : Math.toIntExact(benchPoints)).getString());
-        benchmarks[1] = new Compression(benchPoints);
+        benchmarks[1] = new Compression(benchPoints, data.getString());
         benchmarks[2] = new Decompression(benchPoints);
         benchmarks[3] = new MD5Hashing(benchPoints, data.getString());
         benchmarks[4] = new SHA256Hashing(benchPoints, data.getString());
